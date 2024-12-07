@@ -45,8 +45,8 @@ if (!emailRegex.test(mail)) {
   return;
 }
 
-if (!/^\d+$/.test(contact)) {
-  alert("Contact must be a number.");
+if (!/^\d+$/.test(contact)|| (contact.length<10 || contact.length>10)) {
+  alert("Contact must be a number or enter valid number");
   return;
 }
 
