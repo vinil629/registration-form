@@ -4,16 +4,16 @@
 
 
   
-const button=document.getElementById("btn");
-// document.getElementById("data").innerHTML='';
+const button = document.getElementById("btn");
+const remove = document.getElementById("remove");
+const data = document.getElementById("data");  // ✅ declare globally
 
-button.addEventListener("click",add)
-const remove=document.getElementById("remove");
+button.addEventListener("click", add);
 
-remove.addEventListener("click",function(){
-  // data.remove();
-  data.innerHTML='';
-})
+remove.addEventListener("click", function () {
+  data.innerHTML = ''; 
+  localStorage.removeItem("userDatalist"); // optional: clear localStorage too
+});
 
 
 function add(){
@@ -23,7 +23,7 @@ const name=document.getElementById("name").value;
 const id=document.getElementById("s-id").value;
 const mail=document.getElementById("mail").value;
 const contact=document.getElementById("contact").value;
-const data=document.getElementById("data");
+
 
 if (name === "" || id === "" || mail === "") {
   alert("Empty blanks are not accepted.");
@@ -103,7 +103,7 @@ document.getElementById("contact").value="";
 
     function displaydata(){
       const data = document.getElementById("data");
-      // data.innerHTML='';
+      data.innerHTML='';
       const storedata=JSON.parse(localStorage.getItem("userDatalist")) // its convert to array from localstorage
       if (!Array.isArray(storedata)) {
         storedata = [];
